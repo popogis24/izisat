@@ -2,9 +2,9 @@ import requests
 from tqdm import tqdm
 from loguru import logger
 from datetime import datetime
-from utils import Utils
-from files import Files
-from dates import Dates
+from izisat.misc.utils import Utils
+from izisat.misc.files import Files
+from izisat.misc.dates import Dates
 
 
 class Connections:
@@ -166,7 +166,9 @@ class Connections:
         for band in band_list:
             url_bands = response_resolution.json()["result"]
             for product in url_bands:
-                if band in product["Name"]:
+                # Ensure the band name contains the resolution string (e.g., "10m", "20m")
+                # and the specific band (e.g., "B02")
+                if f"_{resolution}" in product["Name"] and band in product["Name"]:
                     item_to_append = [product["Name"], product["Nodes"]["uri"]]
                     url_bands_resolution.append(item_to_append)
         
@@ -363,6 +365,7 @@ class Connections:
                 logger.info(f"{product_name} is type {product_type}...")
                 l2a_bands = bands_dict["L2A"]
                 links_l2a = self.get_links_l2a_product(access_token, product_id, l2a_bands)
+                
                 all_links.setdefault(product_name, {}).setdefault("L2A", links_l2a)
         
         return all_links
