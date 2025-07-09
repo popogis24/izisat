@@ -120,3 +120,19 @@ The core dependencies for `izisat` include:
 ├── pyproject.toml
 ├── README.md
 └── uv.lock
+```
+
+## How to Contribute
+
+We welcome contributions to `izisat`! If you'd like to contribute, please follow these guidelines:
+
+1.  **Reporting Bugs:** If you find a bug, please open an issue on the GitHub repository. Provide a clear and concise description of the bug, steps to reproduce it, and expected behavior.
+2.  **Suggesting Features:** For new features or enhancements, open an issue to discuss your ideas.
+3.  **Submitting Pull Requests:**
+    *   Fork the repository and create a new branch for your changes.
+    *   Ensure your code adheres to the project's coding style.
+    *   Write clear and concise commit messages.
+    *   Include tests for new features or bug fixes.
+    *   Submit a pull request with a detailed description of your changes.
+
+Thank you for your contributions!
